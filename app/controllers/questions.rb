@@ -7,7 +7,7 @@ post '/surveys/:id/questions' do
   survey = Survey.find_by(id: params[:id])
   question = Question.new(params[:question])
   return [500, "Invalid Question"] unless question.save
-  survey << question
+  survey.questions << question
   redirect "/surveys/#{survey.id}"
 end
 

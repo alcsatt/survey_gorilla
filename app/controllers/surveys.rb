@@ -10,18 +10,19 @@ get '/surveys/new' do
 end
 
 # Show
-get '/surveys/:title' do
-  @survey = Survey.find_by(title: params[:title])
+get '/surveys/:id' do
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/show'
 end
 
 # Create
 post '/surveys' do
   @survey = Survey.new(params[:survey])
+  @survey.creator = current_user
   if @survey.save
     redirect "/surveys"
   else
-
+    erb :'/surveys/new'
   end
 end
 

@@ -18,10 +18,11 @@ end
 # Create
 post '/surveys' do
   @survey = Survey.new(params[:survey])
+  @survey.creator = current_user
   if @survey.save
     redirect "/surveys"
   else
-
+    erb :'/surveys/new'
   end
 end
 

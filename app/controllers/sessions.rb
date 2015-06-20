@@ -16,9 +16,9 @@ end
 post '/login' do
   @user = User.find_by(email: params[:user][:email])
   return [500, "Invalid User"] unless @user
-  if user.authenticate(params[:user][:password])
+  if @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect "/users/#{@user.id}"
+    redirect "/"
   else
     erb :'sessions/login'
   end

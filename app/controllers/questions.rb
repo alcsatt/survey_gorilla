@@ -11,6 +11,13 @@ post '/surveys/:id/questions' do
   redirect "/surveys/#{survey.id}"
 end
 
+get '/surveys/:id/questions/:question_id' do
+  survey = Survey.find_by(id: params[:id])
+  question = Question.find_by(id: params[:question_id])
+  choices = question.choices
+  erb :'/questions/show', locals: {survey: survey, question: question, choices: choices}
+end
+
 get '/surveys/:id/questions/:question_id/edit' do
 
 end

@@ -16,7 +16,12 @@ end
 
 # Create
 post '/surveys' do
+  @survey = Survey.new(params[:survey])
+  if @survey.save
+    redirect "/surveys"
+  else
 
+  end
 end
 
 # Edit

@@ -1,0 +1,17 @@
+<div>
+  <div>Question: <%=question.body%></div>
+  <br>
+  <div>
+    <div>
+      <% if choices %>
+        <% choices.each do |choice| %>
+          <%= erb :'/choices/_single_choice', locals:{choice: choice, survey: survey, question: question} %>
+        <% end %>
+      <% end %>
+      <br>
+    </div>
+  </div>
+  <div><a href ="/surveys/<%=survey.id%>/questions/<%=question.id%>/edit">Edit Question</a></div>
+  <br>
+  <div><a href="/surveys/<%= survey.id %>">Back to Survey</a></div>
+</div>

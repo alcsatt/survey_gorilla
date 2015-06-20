@@ -12,3 +12,10 @@ post '/surveys/:id/questions/:question_id/choices' do
   question.choices << choice
   redirect "/surveys/#{survey.id}"
 end
+
+get '/surveys/:id/questions/:question_id/choices/:choice_id' do
+  @choice = Choice.find_by(id: params[:choice_id])
+  @survey = Survey.find_by(id: params[:id])
+  @question = Question.find_by(id: params[:question_id])
+  erb :'/choices/show'
+end

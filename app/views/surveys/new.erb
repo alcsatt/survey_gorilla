@@ -1,1 +1,9 @@
 <h1>New Survey</h1>
+
+<a id="add-question" href="/questions/new">Add a Question</a><br/><br/>
+
+<form id="add-survey" action="/surveys" method="POST">
+  <label for="title">Title: </label>
+  <input type="text" name="survey[title]" id="title" placeholder="Enter a title"/><br/>
+  <input type="submit" value="Create"/>
+</form>

@@ -53,3 +53,14 @@ delete '/surveys/:id' do
   survey.destroy
   redirect "/surveys/#{survey.id}"
 end
+
+post '/surveys/:id/submit' do
+  survey = Survey.find_by(id: params[:id])
+  current_user.surveys << survey
+  choices = []
+  params[:choice].each do |k, v|
+    choices << Choice.where(answer: v, question_id: k)
+  end
+  choices.flatten.each{|choice| current_user.choices << choice}
+  redirect "/surveys"
+end

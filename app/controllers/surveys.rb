@@ -12,7 +12,11 @@ end
 # Show
 get '/surveys/:id' do
   @survey = Survey.find_by(id: params[:id])
-  erb :'surveys/show'
+  if @survey.creator_id == session[:user_id]
+    erb :'surveys/_show_survey'
+  else
+    erb :'/surveys/show'
+  end
 end
 
 # Create
@@ -28,7 +32,12 @@ end
 
 # Edit
 get '/surveys/:id/edit' do
-
+  @survey = Survey.find_by(id: params[:id])
+  if @survey.creator.id == session[:user_id]
+    erb :'surveys/edit'
+  else
+    redirect "/surveys/#{cur_survey.id}"
+  end
 end
 
 # Update

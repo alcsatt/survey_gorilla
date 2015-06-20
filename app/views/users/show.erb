@@ -1,0 +1,12 @@
+<div>
+  <div><%=@user.email%></div>
+  <div>Created Surveys:
+    <ol>
+      <%@user.created_surveys.each do |s|%>
+        <li><%= s.title%></li>
+      <%end%>
+    </ol>
+  <a href = '/surveys'>All Surveys</a>
+  <a href = '/surveys/new'>Create Survey</a>
+  <a href = '/users/<%=@user.id%>/edit'>Edit Account</a>
+</div>

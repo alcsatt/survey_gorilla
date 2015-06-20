@@ -6,7 +6,7 @@ end
 
 # New
 get '/surveys/new' do
-
+  erb :'surveys/new'
 end
 
 # Show

@@ -10,8 +10,8 @@ get '/surveys/new' do
 end
 
 # Show
-get '/surveys/:title' do
-  @survey = Survey.find_by(title: params[:title])
+get '/surveys/:id' do
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/show'
 end
 

@@ -1,0 +1,10 @@
+<h1>Show a Survey</h1>
+
+<%= @survey.title %><br/><br/>
+<% @survey.questions.each do |question| %>
+  <%= question.body %><br/>
+  <% question.choices.each do |choice| %>
+    <%= choice.answer %><br/>
+  <% end %>
+  <br/>
+<% end %>

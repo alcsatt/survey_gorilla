@@ -6,7 +6,7 @@ post '/signup' do
   @user = User.new(params[:user])
   return [500, "Invalid Signup"] unless @user.save
   session[:user_id] = @user.id
-  redirect '/'
+  redirect "/users/#{@user.id}"
 end
 
 get '/login' do
@@ -18,7 +18,7 @@ post '/login' do
   return [500, "Invalid User"] unless @user
   if @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect "/"
+    redirect "/users/#{@user.id}"
   else
     erb :'sessions/login'
   end

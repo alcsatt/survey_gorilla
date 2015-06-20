@@ -34,3 +34,10 @@ patch '/surveys/:id/questions/:question_id/choices/:choice_id' do
   choice.update(params[:choice])
   redirect "/surveys/#{survey.id}/questions/#{question.id}/choices/#{choice.id}"
 end
+
+delete '/surveys/:id/questions/:question_id/choices/:choice_id' do
+  Choice.find_by(id: params[:choice_id]).destroy
+  survey = Survey.find_by(id: params[:id])
+  question = Question.find_by(id: params[:question_id])
+  redirect "/surveys/#{survey.id}/questions/#{question.id}"
+end

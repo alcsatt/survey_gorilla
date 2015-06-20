@@ -4,7 +4,7 @@
       <form  action="/surveys/<%= @survey.id %>/submit" method="post">
         <% if @survey.questions %>
           <% @survey.questions.each do |question|  %>
-            <%= erb :'questions/_single_question', locals: {question: question, survey: @survey}  %>
+            <%= erb :'questions/_single_taken_question', locals: {question: question, survey: @survey}  %>
 
           <% end %>
         <% end %>

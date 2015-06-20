@@ -6,16 +6,13 @@ $(document).ready(function() {
         $('.question').append(data);
         $('form').on('submit', function(e){
           e.preventDefault();
-          var surveyId = $(this).closest('.single-survey').attr('id');
           $.ajax($(this).attr('action'), {
             method: 'post',
-            data: $('form').serialize(),
-            dataType: 'json'
+            data: $('form').serialize()
           })
-          .done(function(question){
+          .done(function(formData){
             $('form').hide();
-            var link = "/surveys/" + surveyId + "/questions/" + question.id
-            $('.question').append(question);
+            $('.question').append(formData);
           })
           .fail(function(error){
             console.log(error);

@@ -26,3 +26,11 @@ get '/surveys/:id/questions/:question_id/choices/:choice_id/edit' do
   @question = Question.find_by(id: params[:question_id])
   erb :'/choices/edit'
 end
+
+patch '/surveys/:id/questions/:question_id/choices/:choice_id' do
+  choice = Choice.find_by(id: params[:choice_id])
+  survey = Survey.find_by(id: params[:id])
+  question = Question.find_by(id: params[:question_id])
+  choice.update(params[:choice])
+  redirect "/surveys/#{survey.id}/questions/#{question.id}/choices/#{choice.id}"
+end

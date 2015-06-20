@@ -1,0 +1,9 @@
+<form action='/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices/<%= @choice.id %>' method='post'>
+  <input type='hidden' name='_method' value='patch'/>
+  <input type='text' name='choice[answer]' value='<%=@choice.answer%>'/>
+  <input type ='submit' value='Update'/>
+</form>
+<form action='/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices/<%= @choice.id %>' method='post'>
+  <input type='hidden' name='_method' value='delete'/>
+  <input type ='submit' value='Delete'/>
+</form>

@@ -32,5 +32,8 @@ put '/surveys/:id/questions/:question_id' do
 end
 
 delete '/surveys/:id/questions/:question_id' do
-
+  survey = Survey.find_by(id: params[:id])
+  question = Question.find_by(id: params[:question_id])
+  question.destroy
+  redirect "/surveys/#{survey.id}"
 end

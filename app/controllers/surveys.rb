@@ -62,5 +62,10 @@ post '/surveys/:id/submit' do
     choices << Choice.where(answer: v, question_id: k)
   end
   choices.flatten.each{|choice| current_user.choices << choice}
-  redirect "/surveys"
+  redirect "/surveys/#{survey.id}/results"
+end
+
+get '/surveys/:id/results' do
+  @survey = Survey.find_by(id: params[:id])
+  erb :'/surveys/results'
 end

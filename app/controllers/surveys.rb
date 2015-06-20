@@ -11,7 +11,8 @@ end
 
 # Show
 get '/surveys/:title' do
-
+  @survey = Survey.find_by(title: params[:title])
+  erb :'surveys/show'
 end
 
 # Create

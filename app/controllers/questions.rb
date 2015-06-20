@@ -25,7 +25,10 @@ get '/surveys/:id/questions/:question_id/edit' do
 end
 
 put '/surveys/:id/questions/:question_id' do
-
+  survey = Survey.find_by(id: params[:id])
+  question = Question.find_by(id: params[:question_id])
+  question.update(params[:question])
+  redirect "/surveys/#{survey.id}/questions/#{question.id}"
 end
 
 delete '/surveys/:id/questions/:question_id' do

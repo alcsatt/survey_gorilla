@@ -3,9 +3,10 @@ get '/signup' do
 end
 
 post '/signup' do
-  user = User.new(params[:user])
-  return [500, "Invalid Signup"] unless user.save
-  redirect '/login'
+  @user = User.new(params[:user])
+  return [500, "Invalid Signup"] unless @user.save
+  session[:user_id] = @user.id
+  redirect '/'
 end
 
 get '/login' do
@@ -13,11 +14,11 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by(email: params[:user][:email])
-  return [500, "Invalid User"] unless user
+  @user = User.find_by(email: params[:user][:email])
+  return [500, "Invalid User"] unless @user
   if user.authenticate(params[:user][:password])
-    session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+    session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
   else
     erb :'sessions/login'
   end

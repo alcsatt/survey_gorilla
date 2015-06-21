@@ -1,9 +1,9 @@
 <div class= 'container'>
-<h1>Welcome (Name soon to come...)</h1>
+<h1 class ='title'>Welcome to Sugary Surgeon Surveys</h1>
   <% if session[:user_id] %>
-    <a href='/logout'>Logout</a>
+    <a class="btn btn-success" href='/logout'>Logout</a>
   <%else%>
-    <a href='/signup'>Signup</a>
-    <a href='/login'>Login</a>
+    <a class="btn btn-success" href='/signup'>Signup</a>
+    <a class="btn btn-success" href='/login'>Login</a>
   <%end%>
 </div>

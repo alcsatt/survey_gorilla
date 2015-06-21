@@ -1,0 +1,22 @@
+.container {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.container input{
+  background-color: forestgreen;
+  height: 50px;
+  width: 300px;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  border: solid blue 1px;
+  margin: .25%;
+}
+
+.title {
+  font-size: 50px;
+  background-color: lightgreen;
+  border: 3px solid ;
+  font-family: "Arial Black";
+}

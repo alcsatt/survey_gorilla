@@ -9,7 +9,7 @@ post '/surveys/:id/questions' do
   return [500, "Invalid Question"] unless question.save
   survey.questions << question
   if request.xhr?
-    return question.body
+    return question.to_json
   else
     redirect "/surveys/#{survey.id}"
   end

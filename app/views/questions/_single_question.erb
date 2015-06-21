@@ -2,14 +2,14 @@
   <div>
     <a  href="/surveys/<%= survey.id %>/questions/<%= question.id %>"><%= question.body %></a>
   </div>
-  <div>
+  <div class= 'questions'>
     <% if question.choices %>
       <% question.choices.each do |choice|  %>
         <%= erb :'choices/_single_choice', locals: {choice: choice, survey: survey, question: question}  %>
       <% end %>
     <% end %>
  </div>
-  <div class='choice'>
+  <div class='choice' id = ''>
     <a class ='add-choice' href="/surveys/<%= survey.id %>/questions/<%= question.id %>/choices/new">Add new answer</a>
   </div>
   <br>

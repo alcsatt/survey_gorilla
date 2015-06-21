@@ -1,6 +1,6 @@
 get '/surveys/:id/questions/new' do
   @survey = Survey.find_by(id: params[:id])
-  erb :'questions/new', layout: false
+  erb :'questions/new'
 end
 
 post '/surveys/:id/questions' do

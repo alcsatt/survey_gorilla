@@ -34,7 +34,7 @@ end
 get '/surveys/:id/edit' do
   @survey = Survey.find_by(id: params[:id])
   if @survey.creator.id == session[:user_id]
-    erb :'surveys/edit'
+    erb :'surveys/edit', layout: !request.xhr?
   else
     redirect "/surveys/#{@survey.id}"
   end
@@ -44,14 +44,22 @@ end
 patch '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
   survey.update(params[:survey])
-  redirect "/surveys/#{survey.id}"
+  if request.xhr?
+    return survey.to_json
+  else
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 # Destroy
 delete '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
   survey.destroy
-  redirect "/surveys/#{survey.id}"
+  if request.xhr?
+    return survey.to_json
+  else
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 post '/surveys/:id/submit' do

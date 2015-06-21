@@ -1,4 +1,3 @@
-
 <form action="/surveys/<%= @survey.id  %>" method='post'>
   <input type='hidden' name='_method' value='patch'>
   <input type='text' name='survey[title]' value="<%= @survey.title %>"/>

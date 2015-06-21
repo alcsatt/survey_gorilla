@@ -2,12 +2,17 @@ html {
   background-color: lightgreen;
 }
 
+.position {
+
+}
+
 .profile {
   font-size: 18px;
-  margin-left: 45%;
-  margin-right: 45%;
-  width: 100%;
-  padding-bottom: 30px;
+  padding-left: 45%;
+  padding-right: auto%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: lightblue;
 }
 
 .container {
@@ -34,8 +39,7 @@ html {
 
 nav {
   margin-top: 1%;
-  padding: 10px;
-
+  padding: 15px;
 }
 
 nav ul li {

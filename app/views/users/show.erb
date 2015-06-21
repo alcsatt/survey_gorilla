@@ -1,13 +1,16 @@
-<div class='profile'>
-    <div><%=@user.email%></div>
-    <div>Created Surveys:
-      <ol>
-        <%@user.created_surveys.each do |s|%>
-          <li><%= s.title%></li>
-        <%end%>
-      </ol>
-    <div><a class="btn btn-primary" href = '/surveys'>All Surveys</a></div><br>
-    <div><a class="btn btn-primary" href = '/surveys/new'>Create Survey</a></div>
-    <br>
-    <div><a class="btn btn-primary" href = '/users/<%=@user.id%>/edit'>Edit Account</a></div>
+<div class = 'position'>
+  <div class='profile'>
+      <div><%=@user.email%></div>
+      <br>
+      <div>Created Surveys:
+        <ol>
+          <%@user.created_surveys.each do |s|%>
+            <li><%= s.title%></li>
+          <%end%>
+        </ol>
+      <div><a class="btn btn-primary" href = '/surveys'>All Surveys</a></div><br>
+      <div><a class="btn btn-primary" href = '/surveys/new'>Create Survey</a></div>
+      <br>
+      <div><a class="btn btn-primary" href = '/users/<%=@user.id%>/edit'>Edit Account</a></div>
+  </div>
 </div>

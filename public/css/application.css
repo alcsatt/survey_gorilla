@@ -2,10 +2,6 @@ html {
   background-color: lightgreen;
 }
 
-.position {
-
-}
-
 .profile {
   font-size: 18px;
   padding-left: 45%;
@@ -18,6 +14,17 @@ html {
 .container {
   margin-top: 10%;
   text-align: center;
+}
+
+.container2 {
+  margin-left: 45%;
+}
+
+.container2 input {
+  height: 40px;
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
 }
 
 .container input{
@@ -38,7 +45,7 @@ html {
 }
 
 nav {
-  margin-top: 1%;
+  margin-top: 2%;
   padding: 15px;
 }
 
@@ -51,4 +58,14 @@ nav ul li {
 .move-right {
   float: right;
   margin-right: 5%;
+}
+
+.size {
+  font-size: 20px;
+  font-family: verdana;
+}
+
+.size2 {
+  font-size: 16x;
+  font-family: verdana;
 }

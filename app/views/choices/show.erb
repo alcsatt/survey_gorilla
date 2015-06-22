@@ -1,4 +1,6 @@
-<div class='choice-body spacing'>Choice: <%=@choice.answer%></div>
-<div class ='spacing'><a href ="/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices/<%=@choice.id%>/edit">Edit Choice</a></div>
-<br>
-<div><a href="/surveys/<%= @survey.id %>">Back</a></div>
+<div class ='profile'>
+  <div class='choice-body spacing'>Choice: <%=@choice.answer%></div>
+  <div class ='spacing'><a class="btn btn-primary" href ="/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices/<%=@choice.id%>/edit">Edit Choice</a></div>
+  <br>
+  <div><a class="btn btn-primary" href="/surveys/<%= @survey.id %>">Back</a></div>
+</div>

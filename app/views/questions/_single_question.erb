@@ -1,6 +1,5 @@
 <div>
-  <div>
-    <a  href="/surveys/<%= survey.id %>/questions/<%= question.id %>"><%= question.body %></a>
+    <a class='size' href="/surveys/<%= survey.id %>/questions/<%= question.id %>"><%= question.body %></a>
   </div>
   <div class= 'questions'>
     <% if question.choices %>
@@ -10,7 +9,7 @@
     <% end %>
  </div>
   <div class='choice' id = ''>
-    <a class ='add-choice' href="/surveys/<%= survey.id %>/questions/<%= question.id %>/choices/new">Add new answer</a>
+    <a class ='add-choice btn btn-primary' href="/surveys/<%= survey.id %>/questions/<%= question.id %>/choices/new">Add new answer</a>
   </div>
   <br>
-</div>
+

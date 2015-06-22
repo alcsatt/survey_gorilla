@@ -1,11 +1,21 @@
-<h1> <%= @survey.title %> </h1>
-  <% if @survey.questions %>
-    <% @survey.questions.each do |question|  %>
-      <%= erb :'questions/_single_question', locals: {question: question, survey: @survey}  %>
+<div class ='profile'>
+<div class= 'survey' id ='<%=@survey.id%>'>
+  <h1> <%= @survey.title %> </h1>
+    <% if @survey.questions %>
+      <% @survey.questions.each do |question|  %>
+        <%= erb :'questions/_single_question', locals: {question: question, survey: @survey}  %>
+      <% end %>
     <% end %>
-  <% end %>
-  <a href="/surveys/<%= @survey.id %>/questions/new">Add new question</a>
+  <div class="question">
+  </div>
+    <a class=' add-question btn btn-success' href="/surveys/<%= @survey.id %>/questions/new">Add new question</a>
 
-  <br/>
-  <br/>
-    <a href="/surveys/<%= @survey.id %>/edit">Edit Survey Title</a>
+
+    <br/>
+    <br/>
+    <div id = 'add-edit-survey'>
+    </div>
+      <a class="btn btn-success" id='edit-survey' href="/surveys/<%= @survey.id %>/edit">Edit Survey Title</a>
+
+</div>
+</div>

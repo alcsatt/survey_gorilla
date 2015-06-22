@@ -18,6 +18,19 @@
   <title></title>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <ul>
+      <li><a class="btn btn-success" href='/'>Home</a></li>
+      <li><a class="btn btn-success" href='/surveys'>All Surveys</a></li>
+      <li><a class="btn btn-success" href='/users/<%=session[:user_id]%>'>Profile</a></li>
+    <% if session[:user_id] %>
+      <li><a class="btn btn-success move-right" href='/logout'>Logout</a></li>
+    <%else%>
+      <li><a class="btn btn-success move-right" href='/signup'>Signup</a></li>
+      <li><a class="btn btn-success move-right" href='/login'>Login</a></li>
+    <%end%>
+  </ul>
+  </nav>
   <%= yield %>
 </body>
 </html>

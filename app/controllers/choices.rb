@@ -1,7 +1,7 @@
 get '/surveys/:id/questions/:question_id/choices/new' do
   @survey = Survey.find_by(id: params[:id])
   @question = Question.find_by(id: params[:question_id])
-  erb :'/choices/new'
+  erb :'/choices/new', layout: false
 end
 
 post '/surveys/:id/questions/:question_id/choices' do
@@ -10,7 +10,11 @@ post '/surveys/:id/questions/:question_id/choices' do
   question = Question.find_by(id: params[:question_id])
   survey = Survey.find_by(id: params[:id])
   question.choices << choice
-  redirect "/surveys/#{survey.id}"
+  if request.xhr?
+    return answer.body
+  else
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 get '/surveys/:id/questions/:question_id/choices/:choice_id' do

@@ -1,10 +1,12 @@
+<div class= 'profile'
 <h1><%= @survey.title %></h1>
-<form action="/surveys/<%= @survey.id %>/submit" method="post">
-  <% if @survey.questions %>
-    <% @survey.questions.each do |question| %>
-      <%= erb :'questions/_single_taken_question', locals: {question: question, survey: @survey} %>
+  <form action="/surveys/<%= @survey.id %>/submit" method="post">
+    <% if @survey.questions %>
+      <% @survey.questions.each do |question| %>
+        <%= erb :'questions/_single_taken_question', locals: {question: question, survey: @survey} %>
 
+      <% end %>
     <% end %>
-  <% end %>
-  <input type="submit" value="Submit Survey"/>
-</form>
+    <input class="btn btn-primary" type="submit" value="Submit Survey"/>
+  </form>
+</div>

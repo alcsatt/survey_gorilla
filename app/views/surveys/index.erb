@@ -1,5 +1,7 @@
-<h1>Surveys</h1>
+<div class = 'profile'>
+  <h1>Surveys</h1>
 
-<% @surveys.each do |survey| %>
-  <%= erb :'surveys/_survey', locals: {survey: survey} %>
-<% end %>
+  <% @surveys.each do |survey| %>
+    <%= erb :'surveys/_survey', locals: {survey: survey} %>
+  <% end %>
+</div>

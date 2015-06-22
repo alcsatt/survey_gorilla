@@ -1,7 +1,34 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('.add-question').on('click', function(event){
+    event.preventDefault();
+    $.ajax( $(this).attr('href') )
+      .done(function(data) {
+        $('.add-question').hide();
+        $('.question').append(data);
+        $('form').on('submit', function(e){
+          e.preventDefault();
+          $.ajax($(this).attr('action'), {
+            method: 'post',
+            data: $('form').serialize(),
+            dataType: 'json'
+          })
+          .done(function(formData){
+            var surveyId = $('.survey').attr('id')
+            var link = "/surveys/" + surveyId + "/questions/" + formData.id
+            var answerLink = "/surveys/" + surveyId + "/questions/" + formData.id + "/choices/new"
+            $('form').hide();
+            $('.question').append('<div class = "new-choice"><a href = ' + link + '>' + formData.body + '</a></div>');
+            $('.new-choice').append('<div><a href = ' + answerLink + '>Add new answer</a></div><br>')
+            $('.add-question').show();
+          })
+          .fail(function(error){
+            console.log(error);
+          })
+        })
+      })
+      .fail(function(error) {
+        console.log(error);
+      })
+    });
 });
+

@@ -1,6 +1,6 @@
 get '/surveys/:id/questions/new' do
   @survey = Survey.find_by(id: params[:id])
-  erb :'questions/new'
+  erb :'questions/new', layout: false
 end
 
 post '/surveys/:id/questions' do
@@ -8,7 +8,11 @@ post '/surveys/:id/questions' do
   question = Question.new(params[:question])
   return [500, "Invalid Question"] unless question.save
   survey.questions << question
-  redirect "/surveys/#{survey.id}"
+  if request.xhr?
+    return question.to_json
+  else
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 get '/surveys/:id/questions/:question_id' do

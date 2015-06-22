@@ -1,8 +1,7 @@
-
 <p><%= question.body %></p>
-<% if question.choices %>
-    <% question.choices.each do |choice|  %>
-      <%= erb :'choices/_single_taken_choice', locals: {choice: choice, survey: survey, question: question}  %>
-    <% end %>
-<% end %>
-<br/>
+  <% if question.choices %>
+      <% question.choices.each do |choice|  %>
+        <%= erb :'choices/_single_taken_choice', locals: {choice: choice, survey: survey, question: question}  %>
+      <% end %>
+  <% end %>
+  <br/>

@@ -1,0 +1,70 @@
+html {
+  background-color: lightgreen;
+}
+
+.profile {
+  font-size: 18px;
+  padding-left: 45%;
+  padding-right: auto%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: lightblue;
+}
+
+.container {
+  text-align: center;
+}
+
+.container2 {
+  margin-left: 45%;
+}
+
+.container2 input {
+  height: 40px;
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
+}
+
+.container input{
+  background-color: forestgreen;
+  height: 50px;
+  width: 300px;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin: .25%;
+}
+
+.title {
+  font-size: 50px;
+  background-color: lightgreen;
+  border: 3px solid ;
+  font-family: "Arial Black";
+}
+
+nav {
+  margin-top: 2%;
+  padding: 15px;
+}
+
+nav ul li {
+  display: inline;
+  list-style: none;
+  margin-left: 5%;
+}
+
+.move-right {
+  float: right;
+  margin-right: 5%;
+}
+
+.size {
+  font-size: 20px;
+  font-family: verdana;
+}
+
+.size2 {
+  font-size: 16x;
+  font-family: verdana;
+}

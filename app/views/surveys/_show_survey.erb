@@ -1,3 +1,4 @@
+<div class ='profile'>
 <div class= 'survey' id ='<%=@survey.id%>'>
   <h1> <%= @survey.title %> </h1>
     <% if @survey.questions %>
@@ -16,4 +17,5 @@
     </div>
       <a class="btn btn-success" id='edit-survey' href="/surveys/<%= @survey.id %>/edit">Edit Survey Title</a>
 
+</div>
 </div>

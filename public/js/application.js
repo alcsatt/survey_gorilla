@@ -30,5 +30,33 @@ $(document).ready(function() {
         console.log(error);
       })
     });
+ $('#edit-survey').on('click', function(event){
+    event.preventDefault();
+    $.ajax($(this).attr('href'))
+    .done(function(editForm){
+      $('#edit-survey').hide();
+      $('#add-edit-survey').append(editForm);
+      $('#edit-this-survey').on('submit', function(e){
+        e.preventDefault();
+        $.ajax($(this).attr('action'), {
+          method: 'post',
+          data: $('#edit-this-survey').serialize(),
+          dataType: 'json'
+        })
+        .done(function(title){
+          $('h1').text(title.title);
+          $('#edit-survey').show();
+          $('#edit-this-survey').remove();
+        })
+        .fail(function(error) {
+        console.log(error);
+      })
+      })
+    })
+    .fail(function(error) {
+        console.log(error);
+      })
+  });
+
 });
 

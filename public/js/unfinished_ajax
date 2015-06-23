@@ -1,0 +1,14 @@
+$('form').on('submit', function(event){
+        event.preventDefault();
+        $.ajax($(this).attr('action'),{
+          method: 'post',
+          data: $('form').serialize(),
+          dataType: 'json'
+        })
+        .done(function(newChoice){
+          $('.choice').first().append(newChoice.answer);
+        })
+        .fail(function(error){
+          console.log(error)
+        })
+      })

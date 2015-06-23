@@ -11,7 +11,7 @@ post '/surveys/:id/questions/:question_id/choices' do
   survey = Survey.find_by(id: params[:id])
   question.choices << choice
   if request.xhr?
-    return answer.to_json
+    return choice.to_json
   else
     redirect "/surveys/#{survey.id}"
   end

@@ -50,13 +50,26 @@ $(document).ready(function() {
         })
         .fail(function(error) {
         console.log(error);
-      })
+        })
       })
     })
     .fail(function(error) {
         console.log(error);
       })
   });
-
+ $('.add-new-choice').on('click', function(event){
+    event.preventDefault();
+    $(this).parent().attr('id', 'temp');
+    $.ajax( $(this).attr('href') )
+    .done(function(choiceForm){
+      $('#temp').append(choiceForm);
+      $('#temp').children('a').hide();
+      $('.add-new-choice').removeAttr('id');
+      $('.choice').removeAttr('id');
+    })
+    .fail(function(error){
+      console.log(error);
+    })
+  });
 });
 

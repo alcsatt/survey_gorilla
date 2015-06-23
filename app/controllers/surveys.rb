@@ -34,7 +34,7 @@ end
 get '/surveys/:id/edit' do
   @survey = Survey.find_by(id: params[:id])
   if @survey.creator.id == session[:user_id]
-    erb :'surveys/edit', layout: !request.xhr?
+    erb :'surveys/edit', layout: false
   else
     redirect "/surveys/#{@survey.id}"
   end

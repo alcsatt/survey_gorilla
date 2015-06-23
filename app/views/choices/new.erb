@@ -1,6 +1,4 @@
-<div class = 'container2'>
-  <form action='/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices'    method='post'>
-    <input type='text' name='choice[answer]' placeholder='Choice'/>
-    <input type ='submit' value='Create Choice'/>
-  </form>
-</div>
+<form action='/surveys/<%=@survey.id%>/questions/<%=@question.id%>/choices'    method='post'>
+  <input type='text' name='choice[answer]' placeholder='Choice'/>
+  <input type ='submit' value='Create Choice'/>
+</form>
